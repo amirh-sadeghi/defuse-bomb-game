@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Red: Defuse Protocol</title>
+</head>
+
+<body>
+  <div id="start-screen">
+    <div class="start-box">
+      <p class="eyebrow">AmirHossein Sadeghi</p>
+      <h2>💣 Defuse Protocol</h2>
+
+      <p class="start-description">
+        A 5-digit device is armed. Your mission is to enter the correct code
+        before detonation. Use the keypad or your keyboard. In harder modes,
+        the device becomes less forgiving.
+      </p>
+
+      <div class="mode-cards">
+        <button class="mode-card" data-start-difficulty="training">
+          <span class="mode-title">Training</span>
+          <span class="mode-rule">Time: 2:00</span>
+          <span class="mode-rule">Attempts: 10</span>
+          <span class="mode-rule">Feedback: Full</span>
+          <span class="mode-rule">Penalty: None</span>
+          <span class="mode-note">Best for learning the system.</span>
+        </button>
+
+        <button class="mode-card" data-start-difficulty="tactical">
+          <span class="mode-title">Tactical</span>
+          <span class="mode-rule">Time: 3:00</span>
+          <span class="mode-rule">Attempts: 10</span>
+          <span class="mode-rule">Feedback: Full</span>
+          <span class="mode-rule">Penalty: None</span>
+          <span class="mode-note">Balanced pressure and deduction.</span>
+        </button>
+
+        <button class="mode-card" data-start-difficulty="critical">
+          <span class="mode-title">Critical</span>
+          <span class="mode-rule">Time: 4:00</span>
+          <span class="mode-rule">Attempts: 20</span>
+          <span class="mode-rule">Feedback: Partial</span>
+          <span class="mode-rule">Penalty: -5 sec on wrong guess</span>
+          <span class="mode-note">High pressure. Limited intel.</span>
+        </button>
+      </div>
+
+      <p id="start-hint">Select a difficulty and begin the mission.</p>
+      <p id="best-score-display">Best score: --</p>
+
+      <button id="start-btn">START MISSION</button>
+    </div>
+  </div>
+
+  <div id="end-overlay" class="hidden">
+    <div class="end-box">
+      <p class="eyebrow">MISSION REPORT</p>
+      <h2 id="end-title">Mission Complete</h2>
+      <p id="end-message">Status message</p>
+
+      <div class="end-stats">
+        <div class="end-stat">
+          <span class="label">DIFFICULTY</span>
+          <span id="end-difficulty">TRAINING</span>
+        </div>
+        <div class="end-stat">
+          <span class="label">CODE</span>
+          <span id="end-code">12345</span>
+        </div>
+        <div class="end-stat">
+          <span class="label">ATTEMPTS LEFT</span>
+          <span id="end-attempts-left">0</span>
+        </div>
+        <div class="end-stat">
+          <span class="label">ATTEMPTS USED</span>
+          <span id="end-attempts-used">0</span>
+        </div>
+        <div class="end-stat">
+          <span class="label">TIME LEFT</span>
+          <span id="end-time-left">00:00</span>
+        </div>
+      </div>
+
+      <div class="end-actions">
+        <button id="play-again-btn">PLAY AGAIN</button>
+        <button id="change-difficulty-btn">CHANGE DIFFICULTY</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="game-shell">
+      <header class="game-header">
+        <div>
+          <p class="eyebrow">ACTIVE DEVICE</p>
+          <h1>Code Red: Defuse Protocol</h1>
+        </div>
+
+        <div id="difficulty-badge">TRAINING</div>
+      </header>
+
+      <section id="top-bar">
+        <div class="panel-box">
+          <span class="label">TIME</span>
+          <div id="timer">05:00</div>
+        </div>
+
+        <div class="panel-box">
+          <span class="label">ATTEMPTS</span>
+          <div id="attempts">12</div>
+        </div>
+      </section>
+
+      <div id="status-message"></div>
+
+      <section id="slots"></section>
+
+      <section id="controls">
+        <button id="enter-btn">ENTER</button>
+        <button id="delete-btn">DELETE</button>
+        <button id="restart-btn">RESTART</button>
+        <button id="sound-toggle-btn">🔊 SOUND ON</button>
+      </section>
+
+      <section id="keypad"></section>
+
+      <section id="history-section">
+        <div class="history-header">
+          <span>ATTEMPT LOG</span>
+        </div>
+        <div id="history"></div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
